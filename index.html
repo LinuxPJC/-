@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="./echarts-5.4.0/dist/echarts.js"></script>
+</head>
+
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+            title: {
+                text: '广州疫情数据'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['广州新增新冠感染总人数', '新增新冠感染确诊人数', '无症状感染者人数', 'Direct', 'Search Engine'],
+                show: true,
+                top:"6%"
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['11月10日', '11月11日', '11月12日', '11月13日', '11月14日']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: "广州新增新冠感染总人数",
+                    type: 'line',
+                    data: [2824, 3615, 4126, 4532, 5529]
+                },
+                {
+                    name: '新增新冠感染确诊人数',
+                    type: 'line',
+                    data: [466, 694, 662, 656, 552]
+                },
+                {
+                    name: '无症状感染者人数',
+                    type: 'line',
+                    data: [2358, 2921, 3464, 3876, 4977]
+                }
+            ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+    <button ></button>
+</body>
+
+</html>
